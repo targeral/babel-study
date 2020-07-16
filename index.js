@@ -3,7 +3,9 @@ const {writeFileSync, createFileSync, removeSync} = require('fs-extra');
 const DemoBabelPlugin = require('./plugins/demo');
 
 babel.transformFile('./src/index.js', {
-  plugins: [DemoBabelPlugin]
+  plugins: [[DemoBabelPlugin, {
+    a: 1
+  }]]
 }, (err, result) => {
   if (err) {
     throw err;
