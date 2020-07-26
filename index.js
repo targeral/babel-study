@@ -1,11 +1,29 @@
-const babel = require('babel-core');
+const babel = require('@babel/core');
 const {writeFileSync, createFileSync, removeSync} = require('fs-extra');
 const DemoBabelPlugin = require('./plugins/demo');
 
 babel.transformFile('./src/index.js', {
-  plugins: [[DemoBabelPlugin, {
-    a: 1
-  }]]
+  presets: ["@babel/preset-react"],
+  plugins: [
+    [DemoBabelPlugin, {
+      libraryName: {
+        includes: '@byted-blocks'
+      },
+      // style(name) {
+      //   console.log('style', name);
+      //   const stylePath = `${name}/styles/index`;
+      //   try {
+      //     const style = require.resolve(stylePath);
+      //     if (style) {
+      //       return stylePath;
+      //     }
+      //   } catch(err) {
+      //     return false;
+      //   }
+      // }
+      style: true
+    }]
+  ]
 }, (err, result) => {
   if (err) {
     throw err;

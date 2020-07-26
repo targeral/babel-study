@@ -1,5 +1,7 @@
-function square(a) {
-  let b = 1;
-  let c = 2;
-  return b * c;
-}
+import Baike from '@byted-blocks/amos-baike';
+import Page from '@byted-blocks/amos-basic-page';
+ReactDOM.render(
+  <Baike>
+    <BaikeItem>xxxx</BaikeItem>
+  </Baike>
+);
